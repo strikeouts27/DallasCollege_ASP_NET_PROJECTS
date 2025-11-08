@@ -1,0 +1,94 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ContactManager.Models;
+
+namespace ContactManager.Controllers
+{
+    public class ContactController : Controller
+    {
+        private ContactContext context { get; set; }
+        // go into the database and grab all information specified and store it in a variable. 
+        public ContactController(ContactContext ctx)
+        {
+            context = ctx;
+        }
+
+        public IActionResult Details(int id)
+        {
+            // grabbing the column
+            var contact = context.Contacts
+            // include specifies which objects to be grabbed
+                .Include(c => c.Category)
+            // find the first case or the default value for id that is the same as the one we are searching for. 
+                .FirstOrDefault(c => c.ContactId == id);
+            return View(contact);
+        }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            ViewBag.Action = "Add";
+
+            ViewBag.Categories = context.Categories.OrderBy(c => c.Name).ToList();
+            // recycling edit view since there isn't much difference between the two pages. 
+            return View("Edit", new Contact());
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Action = "Edit";
+            ViewBag.Categories = context.Categories.OrderBy(c => c.Name).ToList();
+
+            var contact = context.Contacts
+                .Include(c => c.Category)
+                .FirstOrDefault(c => c.ContactId == id);
+            return View(contact);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Contact contact)
+        {
+            string action = (contact.ContactId == 0) ? "Add" : "Edit";
+
+            if (ModelState.IsValid)
+            {
+                if (action == "Add")
+                {
+                    contact.DateAdded = DateTime.Now;
+                    context.Contacts.Add(contact);
+                }         
+                else
+                {
+                    context.Contacts.Update(contact);
+                }  
+                context.SaveChanges();
+
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Action = action;
+                ViewBag.Categories = context.Categories.OrderBy(c => c.Name).ToList();
+                return View(contact);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var contact = context.Contacts
+                .Include(c => c.Category)
+                .FirstOrDefault(c => c.ContactId == id);
+            return View(contact);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Contact contact)
+        {
+            context.Contacts.Remove(contact);
+            context.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
+    }
+}
