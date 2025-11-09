@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace FAQ.Controllers;
 
 public class HomeController : Controller
-{   
+{
     // this code says go get the database information. 
     // we have this get set private will limit the access that this context can be used. 
     private FAQContext context { get; set; }
@@ -30,7 +30,7 @@ public class HomeController : Controller
 
     public IActionResult Index(string topic, string category)
     {
-        
+
         ViewBag.Topics = context.Topics.OrderBy(t => t.Name).ToList();
         ViewBag.Categories = context.Categories.OrderBy(c => c.Name).ToList();
         // Iqueryable sets up the capabilites for Linq search queries. 
@@ -50,25 +50,8 @@ public class HomeController : Controller
             faqs = faqs.Where(f => Where(f => f.CategoryId == category));
         }
 
-        return View(faqs.ToList()); 
-    }
-
-}
-    
-
-        public IActionResult Index(string topic, string category)
-    {
-        // I need all of the Question
-        // I need all of the Answers 
-        // I need to gather the topics 
-        // I need to gather categories. 
-
-        return View();
-    }
-
-    
-        
-       
+        return View(faqs.ToList());
+    }     
 
     public IActionResult Privacy()
     {
@@ -80,7 +63,4 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-
-
-
 }
