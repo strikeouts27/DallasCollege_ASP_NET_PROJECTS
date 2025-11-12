@@ -31,6 +31,7 @@ public class HomeController : Controller
     public IActionResult Index(string topic, string category)
     {
 
+        // t is a iteration variable and => is a lambda expression saying loop through this informaiton. 
         ViewBag.Topics = context.Topics.OrderBy(t => t.Name).ToList();
         ViewBag.Categories = context.Categories.OrderBy(c => c.Name).ToList();
         // Iqueryable sets up the capabilites for Linq search queries. 
