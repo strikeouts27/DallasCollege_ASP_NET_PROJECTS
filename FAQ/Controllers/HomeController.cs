@@ -38,7 +38,7 @@ public class HomeController : Controller
         // the f is an alias for the iteration variable. the arrow is a lambda expression that 
         // cycles through each of the topics and categories to find the one the client reuqested.
         // IQueryable search paramater must match the model class it is grabbing data from.  
-        IQueryable<QuestionAnswer> faqs = context.FAQs
+        IQueryable<FAQ.Models.FAQ> faqs = context.FAQs
         .Include(f => f.Topic)
         .Include(f => f.Category)
         .OrderBy(f => f.Question);

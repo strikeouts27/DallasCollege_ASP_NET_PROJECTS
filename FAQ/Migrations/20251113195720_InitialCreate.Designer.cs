@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FAQ.Migrations
 {
     [DbContext(typeof(FAQContext))]
-    [Migration("20251113193849_InitialCreate")]
+    [Migration("20251113195720_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -80,7 +80,7 @@ namespace FAQ.Migrations
                         });
                 });
 
-            modelBuilder.Entity("FAQ.Models.QuestionAnswer", b =>
+            modelBuilder.Entity("FAQ.Models.FAQ", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -232,7 +232,7 @@ namespace FAQ.Migrations
                         });
                 });
 
-            modelBuilder.Entity("FAQ.Models.QuestionAnswer", b =>
+            modelBuilder.Entity("FAQ.Models.FAQ", b =>
                 {
                     b.HasOne("FAQ.Models.Category", "Category")
                         .WithMany()
