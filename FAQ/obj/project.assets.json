@@ -4686,11 +4686,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Andrew\\Desktop\\proj\\ASP\\ASP.NET_DallasCollegesAssignments\\FAQ\\FAQ.csproj",
+      "projectUniqueName": "C:\\Users\\Andrew\\Programming_projects\\DallasCollege\\ASP_NET\\DallasCollege_ASP_NET_PROJECTS\\FAQ\\FAQ.csproj",
       "projectName": "FAQ",
-      "projectPath": "C:\\Users\\Andrew\\Desktop\\proj\\ASP\\ASP.NET_DallasCollegesAssignments\\FAQ\\FAQ.csproj",
+      "projectPath": "C:\\Users\\Andrew\\Programming_projects\\DallasCollege\\ASP_NET\\DallasCollege_ASP_NET_PROJECTS\\FAQ\\FAQ.csproj",
       "packagesPath": "C:\\Users\\Andrew\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Andrew\\Desktop\\proj\\ASP\\ASP.NET_DallasCollegesAssignments\\FAQ\\obj\\",
+      "outputPath": "C:\\Users\\Andrew\\Programming_projects\\DallasCollege\\ASP_NET\\DallasCollege_ASP_NET_PROJECTS\\FAQ\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

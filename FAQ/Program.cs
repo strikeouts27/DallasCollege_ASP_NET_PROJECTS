@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using FAQ.Models;
-using FAQ.Data.FAQContext;
 
 var builder = WebApplication.CreateBuilder(args);
 

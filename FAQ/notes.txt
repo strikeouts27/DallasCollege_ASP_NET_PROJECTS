@@ -1,0 +1,4 @@
+SQL SERVER IS A SERVICE ON THE LOCALHOST. 
+
+look up the different settings for database connections in the documentation to customize your connection to your project specific needs. 
+Connection Attribute: 

@@ -5,8 +5,8 @@ namespace FAQ.Models
     public class Topic
     {
         // must be a string per instructions
-        public required string Id { get; set; }
-        public required string Name { get; set; }
+        public string TopicId { get; set; } = string.Empty; 
+        public string Name { get; set; } = string.Empty; 
     }
 
     // make a topic constructor and on model builder

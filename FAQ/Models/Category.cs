@@ -1,14 +1,14 @@
 // Category.cs 
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+
 namespace FAQ.Models
 {
     public class Category
     {
         // Entities are rows in a C# database. 
-        public required string CategoryId { get; set; }
-        public required string Name { get; set; }
-        public required int FAQID { get; set; }
-
-        public required int TopicID { get; set; }
+        public string CategoryId { get; set; } = string.Empty; 
+        public string Name { get; set; } = string.Empty;
+        
     }
 
     // make a category constructor and on model builder
